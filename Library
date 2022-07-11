@@ -1,4 +1,4 @@
-local Flux = {RainbowColorValue = 0, HueSelectionPosition = 0}
+local LXWare = {RainbowColorValue = 0, HueSelectionPosition = 0}
 local PresetColor = Color3.fromRGB(66, 134, 255)
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -7,23 +7,23 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local CloseBind = Enum.KeyCode.RightControl
 
-local FluxLib = Instance.new("ScreenGui")
-FluxLib.Name = "LXWare"
-FluxLib.Parent = game.CoreGui
-FluxLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local LXWareLib = Instance.new("ScreenGui")
+LXWareLib.Name = "LXWare"
+LXWareLib.Parent = game.CoreGui
+LXWareLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 coroutine.wrap(
 	function()
 		while wait() do
-			Flux.RainbowColorValue = Flux.RainbowColorValue + 1 / 255
-			Flux.HueSelectionPosition = Flux.HueSelectionPosition + 1
+			LXWare.RainbowColorValue = LXWare.RainbowColorValue + 1 / 255
+			LXWare.HueSelectionPosition = LXWare.HueSelectionPosition + 1
 
-			if Flux.RainbowColorValue >= 1 then
-				Flux.RainbowColorValue = 0
+			if LXWare.RainbowColorValue >= 1 then
+				LXWare.RainbowColorValue = 0
 			end
 
-			if Flux.HueSelectionPosition == 80 then
-				Flux.HueSelectionPosition = 0
+			if LXWare.HueSelectionPosition == 80 then
+				LXWare.HueSelectionPosition = 0
 			end
 		end
 	end
@@ -87,7 +87,7 @@ end
 
 
 
-function Flux:Window(text, bottom,mainclr,toclose)
+function LXWare:Window(text, bottom,mainclr,toclose)
 	CloseBind = toclose or Enum.KeyCode.RightControl
 	PresetColor = mainclr or Color3.fromRGB(66, 134, 255)
 	local fs = false
@@ -104,7 +104,7 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	local ContainerFolder = Instance.new("Folder")
 
 	MainFrame.Name = "MainFrame"
-	MainFrame.Parent = FluxLib
+	MainFrame.Parent = LXWareLib
 	MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 	MainFrame.BackgroundColor3 = Color3.fromRGB(50, 53, 59)
 	MainFrame.ClipsDescendants = true
@@ -196,17 +196,17 @@ function Flux:Window(text, bottom,mainclr,toclose)
 					MainFrame:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 					uitoggled = true
 					wait(.5)
-					FluxLib.Enabled = false
+					LXWareLib.Enabled = false
 				else
 					MainFrame:TweenSize(UDim2.new(0, 706, 0, 484), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-					FluxLib.Enabled = true
+					LXWareLib.Enabled = true
 					uitoggled = false
 				end
 			end
 		end
 	)
 	
-	function Flux:Notification(desc,buttontitle)
+	function LXWare:Notification(desc,buttontitle)
 		for i, v in next, MainFrame:GetChildren() do
 			if v.Name == "NotificationBase" then
 				v:Destroy()
@@ -2216,11 +2216,11 @@ function Flux:Window(text, bottom,mainclr,toclose)
 						OldHueSelectionPosition = HueSelection.Position
 
 						while RainbowColorPicker do
-							BoxColor.BackgroundColor3 = Color3.fromHSV(Flux.RainbowColorValue, 1, 1)
-							Color.BackgroundColor3 = Color3.fromHSV(Flux.RainbowColorValue, 1, 1)
+							BoxColor.BackgroundColor3 = Color3.fromHSV(LXWare.RainbowColorValue, 1, 1)
+							Color.BackgroundColor3 = Color3.fromHSV(LXWare.RainbowColorValue, 1, 1)
 
 							ColorSelection.Position = UDim2.new(1, 0, 0, 0)
-							HueSelection.Position = UDim2.new(0.48, 0, 0, Flux.HueSelectionPosition)
+							HueSelection.Position = UDim2.new(0.48, 0, 0, LXWare.HueSelectionPosition)
 
 							pcall(callback, BoxColor.BackgroundColor3)
 							wait()
@@ -2746,4 +2746,4 @@ function Flux:Window(text, bottom,mainclr,toclose)
 	end
 	return Tabs
 end
-return Flux
+return LXWare

@@ -878,7 +878,7 @@ function LXWare:Window(text, bottom,mainclr,toclose)
 					TweenService:Create(
 						ToggleCircle,
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =PresetColor}
+						{BackgroundColor3 = PresetColor}
 					):Play()
 				else
 					ToggleCircle:TweenPosition(UDim2.new(0, 0,-0.273, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
@@ -989,7 +989,7 @@ function LXWare:Window(text, bottom,mainclr,toclose)
 				TweenService:Create(
 					ToggleCircle,
 					TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-					{BackgroundColor3 =PresetColor}
+					{BackgroundColor3 = PresetColor}
 				):Play()
 				Toggled = not Toggled
 				pcall(callback, Toggled)
@@ -1174,7 +1174,7 @@ function LXWare:Window(text, bottom,mainclr,toclose)
 					TweenService:Create(
 						Circle,
 						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-						{BackgroundColor3 =PresetColor}
+						{BackgroundColor3 = PresetColor}
 					):Play()
 					TweenService:Create(
 						CircleSmall,
@@ -2207,7 +2207,7 @@ function LXWare:Window(text, bottom,mainclr,toclose)
 						TweenService:Create(
 							ToggleCircle,
 							TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-							{BackgroundColor3 =PresetColor}
+							{BackgroundColor3 = PresetColor}
 						):Play()
 
 						OldToggleColor = BoxColor.BackgroundColor3
